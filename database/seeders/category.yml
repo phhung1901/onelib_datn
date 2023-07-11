@@ -1,0 +1,153 @@
+default:
+  - id: 1
+    name: Business
+    slug: business
+
+  - id: 2
+    name: Career
+    slug: career
+
+  - id: 3
+    name: Data & Analytics
+    slug: data-analytics
+
+  - id: 4
+    name: Design
+    slug: design
+
+  - id: 5
+    name: Devices & Hardware
+    slug: devices-hardware
+
+  - id: 6
+    name: Economy & Finance
+    slug: economy-finance
+
+  - id: 7
+    name: Environment
+    slug: environment
+
+  - id: 8
+    name: Education
+    slug: education
+
+  - id: 9
+    name: Engineering
+    slug: engineering
+
+  - id: 10
+    name: Entertainment & Humor
+    slug: entertainment-humor
+
+  - id: 11
+    name: Food
+    slug: food
+
+  - id: 12
+    name: Government & Nonprofit
+    slug: government-nonprofit
+
+  - id: 13
+    name: Health & Medicine
+    slug: health-medicine
+
+  - id: 14
+    name: Healthcare
+    slug: healthcare
+
+  - id: 15
+    name: Internet
+    slug: internet
+
+  - id: 16
+    name: Investor Relations
+    slug: investor-relations
+
+  - id: 17
+    name: Law
+    slug: law
+
+  - id: 18
+    name: Leadership & Management
+    slug: leadership-management
+
+  - id: 19
+    name: Lifestyle
+    slug: lifestyle
+
+  - id: 20
+    name: Marketing
+    slug: marketing
+
+  - id: 21
+    name: Mobile
+    slug: mobile
+
+  - id: 22
+    name: News & Politics
+    slug: news-politics
+
+  - id: 23
+    name: Presentations & Public Speaking
+    slug: presentations-public-speaking
+
+  - id: 24
+    name: Real Estate
+    slug: real-estate
+
+  - id: 25
+    name: Recruiting & HR
+    slug: recruiting-hr
+
+  - id: 26
+    name: Retail
+    slug: retail
+
+  - id: 27
+    name: Sales
+    slug: sales
+
+  - id: 28
+    name: Science
+    slug: science
+
+  - id: 29
+    name: Self Improvement
+    slug: self-improvement
+
+  - id: 30
+    name: Services
+    slug: services
+
+  - id: 31
+    name: Small Business & Entrepreneurship
+    slug: small-business-entrepreneurship
+
+  - id: 32
+    name: Social Media
+    slug: social-media
+
+  - id: 33
+    name: Software
+    slug: software
+
+  - id: 34
+    name: Spiritual
+    slug: spiritual
+
+  - id: 35
+    name: Sports
+    slug: sports
+
+  - id: 36
+    name: Technology
+    slug: technology
+
+  - id: 37
+    name: Travel
+    slug: travel
+
+  - id: 9999
+    name: Other
+    slug: other
+

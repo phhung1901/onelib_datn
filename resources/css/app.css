@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+    :root {
+        --color-primary: #00A888;
+        --color-text-default: #fffff;
+        --color-text-search:#CBCCCC;
+        --color-secondary:#FFAA00;
+    }
+    html {
+        font-family: "Be Vietnam Pro", system-ui, sans-serif;
+    }
+}
+@layer utilities {
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+}
