@@ -28,7 +28,7 @@ class DocumentRequest extends FormRequest
         return [
             'title' => 'required|min:5|max:255|regex:/[a-zA-Z]/i',
             'source_url' => 'mimes:pdf,doc,docx,ppt,pptx,txt',
-//            'page_number' => 'required|min:1',
+            'description' => 'required|min:30|max:1000'
         ];
     }
 
@@ -52,9 +52,11 @@ class DocumentRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => 'This field can not empty',
-            'source_url.mimes' => 'Formats accepted: doc, docx, odt, pdf, ppt, pptx, txt',
-            'regex' => 'Title must be at least 5 letters'
+            'required' => 'Không được để trống',
+            'source_url.mimes' => 'Định dạng cho phép: doc, docx, odt, pdf, ppt, pptx, txt',
+            'regex' => 'Tiêu đề phải có ít nhất 5 chữ cái',
+            'min' => 'Độ dài chưa đạt tối thiểu',
+            'max' => 'Độ dài vượt quá cho phép'
         ];
     }
 }

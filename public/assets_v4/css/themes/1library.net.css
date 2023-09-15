@@ -1,1 +1,16 @@
-:root{--color-primary:#536a92;--color-secondary:#ee5a24;--color-primary-darker:#3e4f6e;--color-primary-lighter:#6f86ad;--color-secondary-darker:#d24410;--color-secondary-lighter:#f17b4f;--color-info:#5d789b;--color-success:#00a888;--color-warning:#fa0;--color-danger:#e13d34;--color-error:#e13d34;--color-default:#333;--color-default-lighter:#666;--color-main-background:#cbcccc3c}
+:root {
+  --color-primary: #536a92;
+  --color-secondary: #ee5a24;
+  --color-primary-darker: #3e4f6e;
+  --color-primary-lighter: #6f86ad;
+  --color-secondary-darker: #d24410;
+  --color-secondary-lighter: #f17b4f;
+  --color-info: #5D789B;
+  --color-success: #00A888;
+  --color-warning: #FFAA00;
+  --color-danger: #E13D34;
+  --color-error: #E13D34;
+  --color-default: #333333;
+  --color-default-lighter: #666666;
+  --color-main-background: #CBCCCC3C;
+}

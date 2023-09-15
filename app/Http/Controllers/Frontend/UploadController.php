@@ -7,6 +7,7 @@ use App\Http\Requests\DocumentRequest;
 use App\Libs\MimeHelper;
 use App\Models\Document;
 use App\Service\CountPages;
+use App\Service\DetectedLanguage;
 use App\Service\MakePDF;
 use App\Service\MakeText;
 use Illuminate\Support\Facades\Session;
@@ -29,6 +30,10 @@ class UploadController extends Controller
                 $destination_path = 'public/pdftest';
                 $file_path = $file_upload->store($destination_path);
                 $last_path = str_replace("public/", "", $file_path);
+
+                //detect language
+                $language = DetectedLanguage::detected($request->description);
+
                 $document = Document::create([
                     'title' => $request->title,
                     'category_id' => $request->category,
@@ -37,8 +42,8 @@ class UploadController extends Controller
                     'disks' => $disk,
                     'source_url' => $last_path,
                     'path' => $last_path,
-                    'language' => $request->language,
-                    'country' => $request->country,
+                    'language' => $language,
+                    'country' => strtoupper($language),
                     'active' => false,
                     'is_public' => false,
                     'is_approved' => 1,
@@ -55,7 +60,7 @@ class UploadController extends Controller
                 // Get fulltext
                 $full_text = MakeText::makeText($document);
                 // Generate description
-                $description = MakeText::makeDescription($full_text);
+                $description = $request->description;
                 $document->original_size = $size;
                 $document->original_format = $formattedSize;
                 $document->full_text = $full_text;
@@ -75,7 +80,7 @@ class UploadController extends Controller
                 }
 
 
-                Session::flash('success', 'Upload success');
+                Session::flash('success', 'Tải lên thành công');
                 return redirect()->back();
             } else {
                 Session::flash('error', 'You have not selected a document');

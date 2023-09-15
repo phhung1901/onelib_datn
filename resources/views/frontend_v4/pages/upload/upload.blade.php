@@ -54,7 +54,7 @@
                                     <i class="fa-solid fa-cloud-arrow-up text-primary text-3.25xl mb-5"></i>
                                     <span class="font-medium ">DRAG HERE OR SELECT FILE</span>
                                 </label>
-                                <input id="source_url" name="source_url" type="file" class="hidden">
+                                <input id="source_url" name="source_url" type="file">
 
                                 <p class="font-light mb-5 text-center">Formats accepted: doc, docx, odt, pdf, ppt, pptx,
                                     txt</p>
@@ -69,10 +69,22 @@
 
                 <div class="flex flex-col md:flex-row w-full gap-4 md:gap-12">
                     <div class="flex flex-col w-full">
-                        <p class="font-medium text-base text-default mb-2 ml-2">Title</p>
-                        <input type="text" name="title" value=""
+                        <p class="font-medium text-base text-default mb-2 ml-2">Title <span style="color: red">*</span></p>
+                        <input type="text" name="title" value="" required
                                class="@error('title')border-red-300 @enderror border border-default-lighter rounded-1.5lg px-4 py-2 hover:border-primary outline-primary">
                         @error('title')
+                        <span class="text-red-500 mt-3 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                </div>
+
+                <div class="flex flex-col md:flex-row w-full gap-4 md:gap-12">
+                    <div class="flex flex-col w-full">
+                        <p class="font-medium text-base text-default mb-2 ml-2">Description <span style="color: red">*</span></p>
+                        <textarea name="description" rows="4" required placeholder="Mô tả nội dung và chủ đề được đề cập. Từ 30 đến 1000 ký tự"
+                            class="@error('title') border-red-300 @enderror border border-default-lighter rounded-1.5lg px-4 py-2 hover:border-primary outline-primary"></textarea>
+                        @error('description')
                         <span class="text-red-500 mt-3 text-sm">{{ $message }}</span>
                         @enderror
                     </div>
@@ -117,48 +129,48 @@
                         </select>
                     </div>
                 </div>
-                <div class="flex flex-col md:flex-row w-full gap-4 md:gap-12">
-                    <div class="flex flex-col w-full md:w-1/2">
-                        <p class="font-medium text-base text-default mb-2 ml-2">Language</p>
-                        <div class="relative">
-                            <select name="language"
-                                    class="appearance-none w-full border border-default-lighter rounded-1.5lg px-4 py-2 bg-white hover:border-primary outline-primary">
-                                <option selected
-                                        value="en">{{ \App\Libs\CountriesHelper\Languages::getFullName('en') }}</option>
-                                @foreach(\App\Libs\CountriesHelper\Languages::getOptions() as $key => $language)
-                                    <option value="{{ $key }}">{{ $language }}</option>
-                                @endforeach
-                            </select>
-                            <div
-                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 20 20">
-                                    <path d="M10 12l-6-6h12l-6 6z"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-col w-full md:w-1/2">
-                        <p class="font-medium text-base text-default mb-2 ml-2">Region</p>
-                        <div class="relative">
-                            <select name="country"
-                                    class="appearance-none w-full border border-default-lighter rounded-1.5lg px-4 py-2 bg-white hover:border-primary outline-primary">
-                                <option selected
-                                        value="GB">{{ \App\Libs\CountriesHelper\Countries::getFullName('GB') }}</option>
-                                @foreach(\App\Libs\CountriesHelper\Countries::getOptions() as $key => $country)
-                                    <option value="{{ $key }}">{{ $country }}</option>
-                                @endforeach
-                            </select>
-                            <div
-                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 20 20">
-                                    <path d="M10 12l-6-6h12l-6 6z"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="flex flex-col md:flex-row w-full gap-4 md:gap-12">--}}
+{{--                    <div class="flex flex-col w-full md:w-1/2">--}}
+{{--                        <p class="font-medium text-base text-default mb-2 ml-2">Language</p>--}}
+{{--                        <div class="relative">--}}
+{{--                            <select name="language"--}}
+{{--                                    class="appearance-none w-full border border-default-lighter rounded-1.5lg px-4 py-2 bg-white hover:border-primary outline-primary">--}}
+{{--                                <option selected--}}
+{{--                                        value="en">{{ \App\Libs\CountriesHelper\Languages::getFullName('en') }}</option>--}}
+{{--                                @foreach(\App\Libs\CountriesHelper\Languages::getOptions() as $key => $language)--}}
+{{--                                    <option value="{{ $key }}">{{ $language }}</option>--}}
+{{--                                @endforeach--}}
+{{--                            </select>--}}
+{{--                            <div--}}
+{{--                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">--}}
+{{--                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"--}}
+{{--                                     viewBox="0 0 20 20">--}}
+{{--                                    <path d="M10 12l-6-6h12l-6 6z"/>--}}
+{{--                                </svg>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="flex flex-col w-full md:w-1/2">--}}
+{{--                        <p class="font-medium text-base text-default mb-2 ml-2">Region</p>--}}
+{{--                        <div class="relative">--}}
+{{--                            <select name="country"--}}
+{{--                                    class="appearance-none w-full border border-default-lighter rounded-1.5lg px-4 py-2 bg-white hover:border-primary outline-primary">--}}
+{{--                                <option selected--}}
+{{--                                        value="GB">{{ \App\Libs\CountriesHelper\Countries::getFullName('GB') }}</option>--}}
+{{--                                @foreach(\App\Libs\CountriesHelper\Countries::getOptions() as $key => $country)--}}
+{{--                                    <option value="{{ $key }}">{{ $country }}</option>--}}
+{{--                                @endforeach--}}
+{{--                            </select>--}}
+{{--                            <div--}}
+{{--                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">--}}
+{{--                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"--}}
+{{--                                     viewBox="0 0 20 20">--}}
+{{--                                    <path d="M10 12l-6-6h12l-6 6z"/>--}}
+{{--                                </svg>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
                 <div class="flex justify-center">
                     <button type="submit"

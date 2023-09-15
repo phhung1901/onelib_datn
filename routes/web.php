@@ -77,7 +77,7 @@ Route::prefix('/')
         Route::post('/paypal/payment', [PaymentController::class, 'PaypalRedirectPayment'])->name('frontend_v4.redirectPaypal');
         Route::get('/paypal/payment/response', [PaymentController::class, 'PaypalGetResponse'])->name('frontend_v4.responsePaypal');
 
-        // Report
+        // Reportpayme
         Route::post('/document/{slug}/report', [DocumentController::class, 'report'])->name('frontend_v4.document.report');
         Route::post('/document/{slug}/comment', [DocumentController::class, 'comment'])->name('frontend_v4.document.comment');
 

@@ -35,9 +35,9 @@
                         <p class="font-medium text-base text-default mb-2 ml-2">Language</p>
                         <div class="relative">
                             <select name="language" class="appearance-none w-full border border-default-lighter rounded-1.5lg px-4 py-2 bg-white hover:border-primary outline-primary">
-                                <option selected value="en">{{ \App\Libs\CountriesHelper\Languages::getFullName('en') }}</option>
+                                <option @if(!$user->language) {{'selected'}} @endif value="en">{{ \App\Libs\CountriesHelper\Languages::getFullName('en') }}</option>
                                 @foreach(\App\Libs\CountriesHelper\Languages::getOptions() as $key => $language)
-                                    <option value="{{ $key }}">{{ $language }}</option>
+                                    <option @if($user->language == $key) {{"selected"}} @endif value="{{ $key }}">{{ $language }}</option>
                                 @endforeach
                             </select>
                             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -51,9 +51,9 @@
                         <p class="font-medium text-base text-default mb-2 ml-2">Region</p>
                         <div class="relative">
                             <select name="country" class="appearance-none w-full border border-default-lighter rounded-1.5lg px-4 py-2 bg-white hover:border-primary outline-primary">
-                                <option selected value="GB">{{ \App\Libs\CountriesHelper\Countries::getFullName('GB') }}</option>
+                                <option @if(!$user->country) {{'selected'}} @endif value="GB">{{ \App\Libs\CountriesHelper\Countries::getFullName('GB') }}</option>
                                 @foreach(\App\Libs\CountriesHelper\Countries::getOptions() as $key => $country)
-                                    <option value="{{ $key }}">{{ $country }}</option>
+                                    <option @if($user->country == $key) {{"selected"}} @endif value="{{ $key }}">{{ $country }}</option>
                                 @endforeach
                             </select>
                             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">

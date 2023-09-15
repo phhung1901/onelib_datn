@@ -9,6 +9,7 @@ use App\Models\Document;
 use App\Models\Report;
 use App\Models\Tag;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -18,6 +19,7 @@ class DocumentController extends Controller
     public function index()
     {
         $documents = Document::with('categories')
+            ->when(\Auth::check() && (\Auth::user())->language, fn(Builder $query) => $query->where('language', (\Auth::user()->language)))
             ->where('active', true)
             ->where('is_public', true)
             ->where('page_number', "<=", 200)
@@ -26,6 +28,7 @@ class DocumentController extends Controller
             ->get();
 
         $top_documents = Document::with('categories')
+            ->when(\Auth::check() && (\Auth::user())->language, fn(Builder $query) => $query->where('language', (\Auth::user()->language)))
             ->where('active', true)
             ->where('is_public', true)
             ->orderByDesc('viewed_count')
