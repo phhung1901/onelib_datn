@@ -411,6 +411,7 @@
                             href="{{ Auth::check() ? route('frontend_v4.document.dislike', ['slug' => $document->slug]) : '#' }}"
                             class="bg-primary-100 text-primary font-medium rounded-1.5lg px-5 py-1 h-12 inline-flex items-center justify-center gap-2">
                             <i class="fa fa-thumbs-down"></i>
+                            <p>{{ $document->unhelpful_count }}</p>
                             <p class="md:block hidden">Unhelpful</p>
                         </a>
                     </div>

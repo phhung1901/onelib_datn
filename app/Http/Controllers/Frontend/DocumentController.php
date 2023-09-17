@@ -123,7 +123,7 @@ class DocumentController extends Controller
         }
     }
 
-    public function like(Request $request, $slug)
+    public function like($slug)
     {
         $document = Document::where('slug', $slug)
             ->first();
@@ -137,7 +137,7 @@ class DocumentController extends Controller
         return redirect()->back();
     }
 
-    public function dislike(Request $request, $slug)
+    public function dislike($slug)
     {
         $document = Document::where('slug', $slug)
             ->first();

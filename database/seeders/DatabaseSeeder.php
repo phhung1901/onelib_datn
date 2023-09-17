@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
         $user = \App\Models\User::firstOrCreate([
             'email' => 'usertest@gmail.com',
         ], [
-            'name' => 'Hoang Nhat Minh',
+            'name' => 'Pham Huy Hung',
             'password' => bcrypt('password'),
             'active_status' => true,
             'money' => 9999999

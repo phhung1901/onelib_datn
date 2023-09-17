@@ -46,7 +46,7 @@ class PaymentController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->with('common_error', 'Minimum amount is 10.000 VND and maximum amount is 10.000.000 VND');
         }
-        $vnpay_service = VNPayService::create($request->price, route('frontend_v4.getVNPay'));
+        $vnpay_service = VNPayService::create($request->price);
         return redirect($vnpay_service);
     }
 
