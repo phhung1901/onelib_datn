@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
             'money' => 9999999
         ]);
 
+
         $user = \App\Models\User::firstOrCreate([
             'email' => 'usertest@gmail.com',
         ], [

@@ -17,15 +17,13 @@ class CheckAdminRole
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check()) {
+        if (Auth::check() && Auth::user()->hasRole('SuperAdmin')) {
             // Kiểm tra vai trò của người dùng
             $user = Auth::user();
-            if ($user->hasRole('super-admin') || $user->hasRole('admin')) {
+            if ($user->hasRole('SuperAdmin') || $user->hasRole('Admin')) {
                 return $next($request);
             }
         }
-
-        // Nếu không phải "super-admin" hoặc "admin", chuyển hướng hoặc trả về lỗi 403
-        return redirect('/')->with('error', 'Bạn không có quyền truy cập trang quản trị.');
+        return redirect('/');
     }
 }
