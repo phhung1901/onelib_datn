@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 // This route file is loaded automatically by Backpack\Base.
 // Routes you generate using Backpack\Generators will be placed here.
 
-Route::middleware(\App\Http\Middleware\AdminMiddleware::class)->prefix('admin')->namespace('App\Http\Controllers\Admin')->group(function (){
+Route::middleware(['web', 'check.admin.role'])->prefix('admin')->namespace('App\Http\Controllers\Admin')->group(function (){
     Route::crud('user', 'UserCrudController');
     Route::crud('category', 'CategoryCrudController');
     Route::crud('document', 'DocumentCrudController');

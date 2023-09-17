@@ -80,7 +80,7 @@ class DocumentController extends Controller
         return view('frontend_v4.pages.search.search', compact('documents'));
     }
 
-    public function edit(Request $request, $id)
+    public function edit($id)
     {
         $document = Document::where('user_id', \Auth::id())->where('id', $id)->first();
         return view('frontend_v4.pages.upload.update', compact('document'));

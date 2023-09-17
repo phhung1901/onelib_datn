@@ -81,7 +81,7 @@ class UserController extends Controller
         return view('frontend_v4.pages.users.profile', compact('downloads'));
     }
 
-    public function documentUpload(Request $request, $id){
+    public function documentUpload(){
         $user = \Auth::user();
         $documents = Document::where('user_id', $user->id)
             ->where('active', true)

@@ -84,7 +84,7 @@ Route::prefix('/')
         // Document upload
         Route::get('upload', [UploadController::class, 'getUpload'])->name('frontend_v4.users.getUpload');
         Route::post('upload', [UploadController::class, 'postUpload'])->name('frontend_v4.users.postUpload');
-        Route::get('{id}/document_upload', [UserController::class, 'documentUpload'])->name('frontend_v4.users.document_upload');
+        Route::get('/document_upload', [UserController::class, 'documentUpload'])->name('frontend_v4.users.document_upload');
         Route::get('/document_upload/{id}/update', [DocumentController::class, 'edit'])->name('frontend_v4.users.edit_document');
         Route::post('/document_upload/{id}/update', [DocumentController::class, 'update'])->name('frontend_v4.users.update_document');
         Route::get('/document_upload/{id}/delete', [DocumentController::class, 'delete'])->name('frontend_v4.users.delete_document');
